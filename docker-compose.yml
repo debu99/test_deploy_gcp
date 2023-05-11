@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  fast_api:
+    restart: always
+    build: 
+      context: ./fast_api
+      dockerfile: Dockerfile-dev
+    volumes:
+      - ./:/app
+    ports:
+      - 8001:8000
+    command: ["--host", "0.0.0.0", "fast_api.app.main:app", "--reload"]
