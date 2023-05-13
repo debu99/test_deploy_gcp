@@ -14,7 +14,7 @@ COPY app ./app/
 COPY ./gunicorn_config.py ./
 
 EXPOSE 8000
-
+ENV PYTHONUNBUFFERED=True PYTHONPATH=/app/app
 
 #ENTRYPOINT ["uvicorn"]
 CMD exec gunicorn app.main:app -c gunicorn_config.py
